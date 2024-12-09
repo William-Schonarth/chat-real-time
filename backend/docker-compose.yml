@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    container_name: chat-real-time
+    restart: always
+    ports:
+      - "4000:4000"
+    environment:
+      DATABASE_URL: "mongodb://root:secret@mongo:27017/chat-real-time?authSource=admin"
+      JWT_SECRET: "1be63c85-02a6-4004-a6fc-33a438fbf18f"
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:6
+    container_name: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: secret
+    ports:
+      - "27017:27017"

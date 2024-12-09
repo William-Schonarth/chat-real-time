@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  username  String    @unique
+  password  String
+  isOnline  Boolean   @default(false)
+  createdAt DateTime  @default(now())
+  roomIds   String[]  @db.ObjectId
+  rooms     Room[]    @relation(fields: [roomIds], references: [id])
+  message   Message[]
+
+  @@map("users")
+}
+
+model Room {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  participantIds String[]  @db.ObjectId
+  participants   User[]    @relation(fields: [participantIds], references: [id])
+  messages       Message[]
+
+  @@map("rooms")
+}
+
+model Message {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  roomId    String   @db.ObjectId
+  room      Room     @relation(fields: [roomId], references: [id])
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  content   String
+  createdAt DateTime @default(now())
+
+  @@map("messages")
+}

@@ -1,0 +1,23 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true
+  },
+  "workbench.editor.customLabels.patterns": {
+    "**/app/**/page.tsx": "${dirname} - Page",
+    "**/app/**/_components/**/index.tsx": "${dirname} - Page Component",
+    "**/shared/**/index.tsx": "${dirname} - Component",
+    "**/shared/**/types.ts": "${dirname} - Component Types",
+    "**/shared/**/*.model.ts": "${filename} - Model",
+    "**/shared/**/*.service.ts": "${filename} - Service",
+    "**/shared/**/*.context.tsx": "${filename} - Context",
+    "**/shared/infra/**/*.ts": "${filename} - Infra",
+    "**/shared/hooks/**/*.tsx": "${filename} - Hook",
+    "**/shared/utils/**/*.ts": "${filename} - Util"
+  }
+}

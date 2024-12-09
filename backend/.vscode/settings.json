@@ -1,0 +1,21 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true
+  },
+  "workbench.editor.customLabels.patterns": {
+    "**/*.repository.ts": "${filename} - Repository",
+    "**/*.service.ts": "${filename} - Service",
+    "**/*.controller.ts": "${filename} - Controller",
+    "**/*.middleware.ts": "${filename} - Middleware",
+    "**/*.routes.ts": "${filename} - Routes",
+    "**/*.handler.ts": "${filename} - Handler",
+    "**/routes/index.ts": "${filename} - Routes",
+    "**/config/*.ts": "${filename} - Config"
+  }
+}
