@@ -19,7 +19,7 @@
 ## Como iniciar o projeto
 
 <details>
-<summary><b>✨ Frontend</b></summary>
+<summary><b>🟢 Frontend</b></summary>
 
 Vá até o diretório
 
@@ -42,7 +42,7 @@ npm run dev
 </details>
 
 <details>
-<summary><b>🧠 Backend</b></summary>
+<summary><b>🟢 Backend</b></summary>
 
 Vá até o diretório
 
@@ -60,6 +60,12 @@ Inicie o projeto
 
 ```bash
 npm run dev
+```
+
+Utilizando docker-compose
+
+```bash
+docker-compose up --build
 ```
 
 </details>
